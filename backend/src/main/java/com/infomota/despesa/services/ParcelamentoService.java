@@ -62,5 +62,14 @@ public class ParcelamentoService {
 	public List<Parcelamento> findByAbertoPorPeriodo(String min, String max) {
 		return rep.findByAbertoPorPeriodo(LocalDate.parse(min), LocalDate.parse(max));
 	}
-
+	
+	// Salva um novo novo parcelamento
+	public void novoParcelamento(List<Parcelamento> parcelas) {
+		for (Parcelamento parcela : parcelas) {
+			rep.save(parcela);
+		}
+	}
+	
+	
+	
 }

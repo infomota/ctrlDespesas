@@ -15,6 +15,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +56,11 @@ public class ParcelamentoController {
 	public List<Parcelamento> findByAbertoPorPeriodo(@RequestParam(value = "dataInicio") String min,
 			@RequestParam(value = "dataFim") String max) {
 		return service.findByAbertoPorPeriodo(min, max);
+	}
+	
+	@PostMapping("/novo")
+	public void novoParcelamento(@RequestBody List<Parcelamento> parcelas) {
+		service.novoParcelamento(parcelas);
 	}
 
 }
