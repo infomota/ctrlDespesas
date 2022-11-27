@@ -64,10 +64,10 @@ public class ParcelamentoController {
 	}
 
 	@PostMapping("/alteraParcela")
-	public void alteraParcela(
-			@RequestParam(value = "id") Integer id,
+	public void alteraParcela(@RequestParam(value = "id") Integer id,
 			@RequestParam(value = "vencimento") String vencimento, 
 			@RequestParam(value = "valor") Double valor) {
 		service.alteraParcela(id, vencimento, valor);
 	}
+	
 }

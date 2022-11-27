@@ -1,13 +1,15 @@
 package com.infomota.despesa.entities;
 
 /**
- * Entidade que representa o objeto DESPESA
+ * Entidade que representa o objeto Despesa
  * 
- * Author: Paulo Mota 
- * Data: 23/11/2022
+ * Author: Paulo Mota
+ * Data: 26/11/2022
  * 
  */
-import java.util.Date;
+
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +25,10 @@ public class Despesa {
 	private Integer id;
 	private int ano;
 	private int mes;
-	private Date dataVencto;
+	private LocalDate dataVencto;
 	private String descricao;
 	private Double valor;
 	private String status;
-	private Integer idUsuario;
-
 	public Despesa() {
 
 	}
@@ -57,11 +57,11 @@ public class Despesa {
 		this.mes = mes;
 	}
 
-	public Date getDataVencto() {
+	public LocalDate getDataVencto() {
 		return dataVencto;
 	}
 
-	public void setDataVencto(Date dataVencto) {
+	public void setDataVencto(LocalDate dataVencto) {
 		this.dataVencto = dataVencto;
 	}
 
@@ -89,12 +89,5 @@ public class Despesa {
 		this.status = status;
 	}
 
-	public Integer getIdUsuario() {
-		return idUsuario;
-	}
-
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
 }

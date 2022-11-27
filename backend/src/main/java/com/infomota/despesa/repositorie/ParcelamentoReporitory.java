@@ -32,7 +32,7 @@ public interface ParcelamentoReporitory extends JpaRepositoryImplementation<Parc
 	// Querys customizadas
 	String findByAbertoPorPeriodo= "SELECT obj FROM Parcelamento obj "
 									+ "WHERE obj.vencimento BETWEEN :min AND :max "
-									+ "AND obj.status = 'Em Aberto'"
+									+ "AND obj.status = 'Pendente'"
 									+ "ORDER BY obj.vencimento DESC";
 	
 	@Query(findByAbertoPorPeriodo)

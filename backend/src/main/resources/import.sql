@@ -7,12 +7,12 @@ INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, statu
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 4, 12, 'Pago', 1200.00, 14400.00, '2022-04-15');
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 5, 12, 'Pago', 1200.00, 14400.00, '2022-05-15');
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 6, 12, 'Pago', 1200.00, 14400.00, '2022-06-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 7, 12, 'Em Aberto', 1200.00, 14400.00, '2022-07-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 8, 12, 'Em Aberto', 1200.00, 14400.00, '2022-08-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 9, 12, 'Em Aberto', 1200.00, 14400.00, '2022-09-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 10, 12, 'Em Aberto', 1200.00, 14400.00, '2022-10-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 11, 12, 'Em Aberto', 1200.00, 14400.00, '2022-11-15');
-INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 12, 12, 'Em Aberto', 1200.00, 14400.00, '2022-12-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 7, 12, 'Pendente', 1200.00, 14400.00, '2022-07-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 8, 12, 'Pendente', 1200.00, 14400.00, '2022-08-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 9, 12, 'Pendente', 1200.00, 14400.00, '2022-09-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 10, 12, 'Pendente', 1200.00, 14400.00, '2022-10-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 11, 12, 'Pendente', 1200.00, 14400.00, '2022-11-15');
+INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Cruze Lt 2012', 12, 12, 'Pendente', 1200.00, 14400.00, '2022-12-15');
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Reginatto Marcenaria Moveis', 1, 3, 'Pago', 9000.00, 27000.00, '2022-01-10');
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Reginatto Marcenaria Moveis', 2, 3, 'Pago', 9000.00, 27000.00, '2022-02-15');
 INSERT INTO tb_installment(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento) VALUES ('Reginatto Marcenaria Moveis', 3, 3, 'Pago', 9000.00, 27000.00, '2022-03-15');

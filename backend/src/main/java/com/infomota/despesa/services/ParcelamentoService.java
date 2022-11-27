@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.infomota.despesa.entities.Parcelamento;
+import com.infomota.despesa.enums.StatusPagamento;
 import com.infomota.despesa.repositorie.ParcelamentoReporitory;
 
 @Service
@@ -64,9 +65,9 @@ public class ParcelamentoService {
 	}
 
 	// Salva um novo novo parcelamento
-	public void novoParcelamento(List<Parcelamento> parcelas) {
-		for (Parcelamento parcela : parcelas) {
-			rep.save(parcela);
+	public void novoParcelamento(List<Parcelamento> parcela) {
+		for (Parcelamento parcelas : parcela) {
+			rep.save(parcelas);
 		}
 	}
 
@@ -77,4 +78,12 @@ public class ParcelamentoService {
 		parcela.setValorParcela(valor);
 		rep.save(parcela);
 	}
+
+	// Atualiza o Status do Parcelamento para PAGO
+	public void alteraStatus(Integer id) {
+		Parcelamento parcela = rep.findById(id).get();
+		parcela.setStatus(StatusPagamento.PAGO.getDescricao());
+		rep.save(parcela);
+	}
+
 }
