@@ -22,7 +22,7 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository rep;
-
+	
 	// Retorna uma lista de usuários cadastrados
 	public List<Usuario> findUserAll() {
 		return rep.findAll();
@@ -36,6 +36,18 @@ public class UsuarioService {
 	// Retorna um usuário pelo CPF
 	public Usuario findByCpf(String cpf) {
 		return rep.findByCpf(cpf);
+	}
+	
+	// Insere um novo usuário
+	public void novoUsuario(Usuario user) {
+		rep.save(user);
+	}
+	
+	// Alterar a senha de um usuário
+	public void alteraSenha(Integer id, String senha) {
+		Usuario usuario = rep.findById(id).get();
+		usuario.setSenha(senha);
+		rep.save(usuario);
 	}
 
 }
