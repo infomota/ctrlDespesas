@@ -2,7 +2,7 @@ package com.infomota.despesa.controller;
 
 /**
  * Classe que contém os endPoints que acessam a entidade USUARIO
- * Acessa a tabela: UsuarioService
+ * Acessa o serviço: UsuarioService
  * 
  * Author: Paulo Mota
  * Data: 23/11/2022

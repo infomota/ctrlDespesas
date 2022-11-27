@@ -2,7 +2,7 @@ package com.infomota.despesa.services;
 
 /**
  * Classe que representa as funcionaidades de negócio da Entidade USUARIO
- * Acessa a tabela: UsuarioRepository
+ * Acessa o repositório: UsuarioRepository
  * 
  * Author: Paulo Mota
  * Data: 23/11/2022
