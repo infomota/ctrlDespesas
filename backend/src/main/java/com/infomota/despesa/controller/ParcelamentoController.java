@@ -57,10 +57,17 @@ public class ParcelamentoController {
 			@RequestParam(value = "dataFim") String max) {
 		return service.findByAbertoPorPeriodo(min, max);
 	}
-	
+
 	@PostMapping("/novo")
 	public void novoParcelamento(@RequestBody List<Parcelamento> parcelas) {
 		service.novoParcelamento(parcelas);
 	}
 
+	@PostMapping("/alteraParcela")
+	public void alteraParcela(
+			@RequestParam(value = "id") Integer id,
+			@RequestParam(value = "vencimento") String vencimento, 
+			@RequestParam(value = "valor") Double valor) {
+		service.alteraParcela(id, vencimento, valor);
+	}
 }
