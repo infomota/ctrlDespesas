@@ -1,5 +1,7 @@
 package com.infomota.despesa.entities;
 
+import java.time.LocalDate;
+
 /**
  * Entidade que representa o objeto RECEITA
  * 
@@ -27,7 +29,7 @@ public class Receita {
 	private String fontePagadora;
 	private String descricao;
 	private Double valor;
-	private Integer idUsuario;
+	private LocalDate dataRecebimento;
 
 	public Receita() {
 
@@ -89,12 +91,12 @@ public class Receita {
 		this.valor = valor;
 	}
 
-	public Integer getIdUsuario() {
-		return idUsuario;
+	public LocalDate getDataRecebimento() {
+		return dataRecebimento;
 	}
 
-	public void setIdUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setDataRecebimento(LocalDate dataRecebimento) {
+		this.dataRecebimento = dataRecebimento;
 	}
 
 }
