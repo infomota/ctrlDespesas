@@ -1,22 +1,26 @@
 package com.infomota.despesa.entities;
 
-/**
- * Entidade que representa o objeto Usuario
- * 
- * Author: Paulo Mota
- * Data: 23/11/2022
- * 
- */
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @Description Entidade que representa o objeto Usuario
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Entity
-@Table(name = "tb_user")
-public class Usuario {
+@Table(name = "tb_usuario")
+public class Usuario implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +31,26 @@ public class Usuario {
 	private String foneMovel;
 	private String senha;
 
-	public Usuario() {
+	// Mapeamento de entidades externas (Foreign Keys)
+	@OneToMany(mappedBy = "usuario")
+	private List<Receita> receitas = new ArrayList<>();
 
+	@OneToMany(mappedBy = "usuario")
+	private List<Despesa> despesas = new ArrayList<>();
+
+	@OneToMany(mappedBy = "usuario")
+	private List<Parcelamento> parcelamento = new ArrayList<>();
+
+	public Usuario(Integer id, String nome, String cpf, String email, String foneMovel, String senha,
+			List<Receita> receitas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.foneMovel = foneMovel;
+		this.senha = senha;
+		this.receitas = receitas;
 	}
 
 	public Integer getId() {
@@ -78,4 +100,17 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public List<Receita> getReceitas() {
+		return receitas;
+	}
+
+	public List<Despesa> getDespesas() {
+		return despesas;
+	}
+
+	public List<Parcelamento> getParcelamento() {
+		return parcelamento;
+	}
+
 }

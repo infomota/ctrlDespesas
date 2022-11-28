@@ -1,24 +1,26 @@
 package com.infomota.despesa.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-
-/**
- * Entidade que representa o objeto RECEITA
- * 
- * Author: Paulo Mota
- * Data: 23/11/2022
- * 
- */
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @Description Entidade que representa o objeto RECEITA
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Entity
-@Table(name = "tb_financial_input")
-public class Receita {
+@Table(name = "tb_receita")
+public class Receita implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +33,22 @@ public class Receita {
 	private Double valor;
 	private LocalDate dataRecebimento;
 
-	public Receita() {
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 
+	public Receita(Integer id, int ano, int mes, String documento, String fontePagadora, String descricao, Double valor,
+			LocalDate dataRecebimento, Usuario usuario) {
+		super();
+		this.id = id;
+		this.ano = ano;
+		this.mes = mes;
+		this.documento = documento;
+		this.fontePagadora = fontePagadora;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.dataRecebimento = dataRecebimento;
+		this.usuario = usuario;
 	}
 
 	public Integer getId() {
@@ -97,6 +113,14 @@ public class Receita {
 
 	public void setDataRecebimento(LocalDate dataRecebimento) {
 		this.dataRecebimento = dataRecebimento;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -1,32 +1,26 @@
 package com.infomota.despesa.entities;
 
-/**
- * Entidade que representa o objeto Parcelamento
- * 
- * Author: Paulo Mota
- * Data: 26/11/2022
- * 
- */
-
+import java.io.Serializable;
 import java.time.LocalDate;
-
-/**
- * Entidade que representa o objeto Parcelamento
- * 
- * Author: Paulo Mota
- * Data: 26/11/2022
- * 
- */
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @Description Entidade que representa o objeto PARCELAMENTO
+ * @author Paulo Mota
+ * @data 26/11/2022
+ */
+
 @Entity
-@Table(name = "tb_installment")
-public class Parcelamento {
+@Table(name = "tb_parcelamento")
+public class Parcelamento implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,8 +33,22 @@ public class Parcelamento {
 	private Double valorTotal;
 	private String status;
 
-	public Parcelamento() {
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 
+	public Parcelamento(Integer id, String descricao, LocalDate vencimento, int nrParcelasTotal, int nrParcelaAtual,
+			Double valorParcela, Double valorTotal, String status, Usuario usuario) {
+		super();
+		this.id = id;
+		this.descricao = descricao;
+		this.vencimento = vencimento;
+		this.nrParcelasTotal = nrParcelasTotal;
+		this.nrParcelaAtual = nrParcelaAtual;
+		this.valorParcela = valorParcela;
+		this.valorTotal = valorTotal;
+		this.status = status;
+		this.usuario = usuario;
 	}
 
 	public Integer getId() {
@@ -105,6 +113,14 @@ public class Parcelamento {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

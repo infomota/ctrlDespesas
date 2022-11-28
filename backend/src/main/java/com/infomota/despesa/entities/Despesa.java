@@ -1,24 +1,26 @@
 package com.infomota.despesa.entities;
 
-/**
- * Entidade que representa o objeto Despesa
- * 
- * Author: Paulo Mota
- * Data: 26/11/2022
- * 
- */
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @Description Entidade que representa o objeto DESPESA
+ * @author Paulo Mota
+ * @data 26/11/2022
+ */
+
 @Entity
-@Table(name = "tb_financial_output")
-public class Despesa {
+@Table(name = "tb_despesa")
+public class Despesa implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +31,22 @@ public class Despesa {
 	private String descricao;
 	private Double valor;
 	private String status;
-	public Despesa() {
 
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+
+	public Despesa(Integer id, int ano, int mes, LocalDate dataVencto, String descricao, Double valor, String status,
+			Usuario usuario) {
+		super();
+		this.id = id;
+		this.ano = ano;
+		this.mes = mes;
+		this.dataVencto = dataVencto;
+		this.descricao = descricao;
+		this.valor = valor;
+		this.status = status;
+		this.usuario = usuario;
 	}
 
 	public Integer getId() {
@@ -89,5 +105,12 @@ public class Despesa {
 		this.status = status;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
