@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @Description Entidade que representa o objeto Usuario
  * @author Paulo Mota
@@ -32,17 +34,24 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	// Mapeamento de entidades externas (Foreign Keys)
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Receita> receitas = new ArrayList<>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Despesa> despesas = new ArrayList<>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Parcelamento> parcelamento = new ArrayList<>();
 
+	public Usuario() {
+
+	}
+
 	public Usuario(Integer id, String nome, String cpf, String email, String foneMovel, String senha,
-			List<Receita> receitas) {
+			List<Receita> receitas, List<Despesa> despesas, List<Parcelamento> parcelamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -51,6 +60,8 @@ public class Usuario implements Serializable {
 		this.foneMovel = foneMovel;
 		this.senha = senha;
 		this.receitas = receitas;
+		this.despesas = despesas;
+		this.parcelamento = parcelamento;
 	}
 
 	public Integer getId() {

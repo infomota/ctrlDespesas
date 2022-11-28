@@ -36,6 +36,10 @@ public class Despesa implements Serializable {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
+	public Despesa() {
+
+	}
+
 	public Despesa(Integer id, int ano, int mes, LocalDate dataVencto, String descricao, Double valor, String status,
 			Usuario usuario) {
 		super();

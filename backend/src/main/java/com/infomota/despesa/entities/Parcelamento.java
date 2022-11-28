@@ -37,6 +37,10 @@ public class Parcelamento implements Serializable {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
+	public Parcelamento() {
+
+	}
+
 	public Parcelamento(Integer id, String descricao, LocalDate vencimento, int nrParcelasTotal, int nrParcelaAtual,
 			Double valorParcela, Double valorTotal, String status, Usuario usuario) {
 		super();

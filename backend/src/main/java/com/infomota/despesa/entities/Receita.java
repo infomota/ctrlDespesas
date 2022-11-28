@@ -3,6 +3,7 @@ package com.infomota.despesa.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,7 +36,12 @@ public class Receita implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
+	@Embedded
 	private Usuario usuario;
+
+	public Receita() {
+
+	}
 
 	public Receita(Integer id, int ano, int mes, String documento, String fontePagadora, String descricao, Double valor,
 			LocalDate dataRecebimento, Usuario usuario) {
