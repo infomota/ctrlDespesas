@@ -1,6 +1,6 @@
-INSERT INTO tb_usuario(nome, cpf, email, fone_movel, senha) VALUES ('Paulo Mota', '23145678945', 'paulo_mota25@yahoo.com.br', '11988789999', 'a8945#b');
-INSERT INTO tb_usuario(nome, cpf, email, fone_movel, senha) VALUES ('Katia Mota', '02135878459', 'katia.mota26@gmail.com', '1197286962', 'a8459#b');
-INSERT INTO tb_usuario(nome, cpf, email, fone_movel, senha) VALUES ('Emanuelle Mota', '45678923422', 'manu_mota@gmail.com', '11999999999', 'a3422#b');
+INSERT INTO tb_usuario(nome, cpf, email, fone_movel) VALUES ('Paulo Mota', '23145678945', 'paulo_mota25@yahoo.com.br', '11988789999');
+INSERT INTO tb_usuario(nome, cpf, email, fone_movel) VALUES ('Katia Mota', '02135878459', 'katia.mota26@gmail.com', '1197286962');
+INSERT INTO tb_usuario(nome, cpf, email, fone_movel) VALUES ('Emanuelle Mota', '45678923422', 'manu_mota@gmail.com', '11999999999');
 INSERT INTO tb_parcelamento(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento, usuario_id) VALUES ('Cruze Lt 2012', 1, 12, 'Pago', 1200.00, 14400.00, '2022-01-15', 1);
 INSERT INTO tb_parcelamento(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento, usuario_id) VALUES ('Cruze Lt 2012', 2, 12, 'Pago', 1200.00, 14400.00, '2022-02-15', 1);
 INSERT INTO tb_parcelamento(descricao, nr_parcela_atual, nr_parcelas_total, status, valor_parcela, valor_total, vencimento, usuario_id) VALUES ('Cruze Lt 2012', 3, 12, 'Pago', 1200.00, 14400.00, '2022-03-15', 1);

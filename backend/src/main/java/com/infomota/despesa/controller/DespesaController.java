@@ -15,12 +15,10 @@ import com.infomota.despesa.entities.Despesa;
 import com.infomota.despesa.services.DespesaService;
 
 /**
- * Classe que contém os endPoints que acessam a entidade DESPESA
- * Acessa o serviço: DespesaService
- * 
- * Author: Paulo Mota
- * Data: 27/11/2022
- * 
+ * @Description Classe que contém os endPoints que acessam a entidade DESPESA.
+ *              Acessa o serviço: DespesaService
+ * @author Paulo Mota
+ * @data 27/11/2022
  */
 
 @RestController
@@ -47,9 +45,9 @@ public class DespesaController {
 		service.pagarDespesa(id);
 	}
 
-	@GetMapping("/mes/{ano}/{mes}")
-	public List<Despesa> findByAnoAndMes(@PathVariable Integer ano, @PathVariable Integer mes) {
-		return service.findByAnoAndMes(ano, mes);
+	@GetMapping("/usuario/mes/{usuaroId}/{ano}/{mes}")
+	public List<Despesa> listaMesUsuario(@PathVariable Integer usuaroId, @PathVariable Integer ano, @PathVariable Integer mes) {
+		return service.findByAnoAndMesAndUsuarioId(ano, mes, usuaroId);
 	}
 
 }

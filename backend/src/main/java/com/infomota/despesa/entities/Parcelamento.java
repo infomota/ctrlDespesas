@@ -34,7 +34,7 @@ public class Parcelamento implements Serializable {
 	private String status;
 
 	@ManyToOne
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "usuario_id", nullable = false)
 	private Usuario usuario;
 
 	public Parcelamento() {

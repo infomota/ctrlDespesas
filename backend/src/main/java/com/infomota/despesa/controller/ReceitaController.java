@@ -15,14 +15,11 @@ import com.infomota.despesa.entities.Receita;
 import com.infomota.despesa.services.ReceitaService;
 
 /**
- * Classe que contém os endPoints que acessam a entidade RECEITA
- * Acessa o serviço: ReceitaService
- * 
- * Author: Paulo Mota
- * Data: 27/11/2022
- * 
+ * @Description Classe que contém os endPoints que acessam a entidade RECEITA.
+ *              Acessa o serviço: ReceitaService
+ * @author Paulo Mota
+ * @data 27/11/2022
  */
-
 
 @RestController
 @RequestMapping("/receitas")
@@ -52,9 +49,9 @@ public class ReceitaController {
 		service.deletaReceita(id);
 	}
 
-	@GetMapping("/mes/{ano}/{mes}")
-	public List<Receita> receitasMes(@PathVariable int ano, @PathVariable int mes) {
-		return service.receitasMes(ano, mes);
+	@GetMapping("/mes/{usuario}/{ano}/{mes}")
+	public List<Receita> receitasMes(@PathVariable Integer usuario, @PathVariable int ano, @PathVariable int mes) {
+		return service.receitasMes(ano, mes, usuario);
 	}
 
 }

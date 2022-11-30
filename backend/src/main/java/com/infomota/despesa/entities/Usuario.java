@@ -31,7 +31,6 @@ public class Usuario implements Serializable {
 	private String cpf;
 	private String email;
 	private String foneMovel;
-	private String senha;
 
 	// Mapeamento de entidades externas (Foreign Keys)
 	@JsonIgnore
@@ -50,15 +49,14 @@ public class Usuario implements Serializable {
 
 	}
 
-	public Usuario(Integer id, String nome, String cpf, String email, String foneMovel, String senha,
-			List<Receita> receitas, List<Despesa> despesas, List<Parcelamento> parcelamento) {
+	public Usuario(Integer id, String nome, String cpf, String email, String foneMovel, List<Receita> receitas,
+			List<Despesa> despesas, List<Parcelamento> parcelamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.foneMovel = foneMovel;
-		this.senha = senha;
 		this.receitas = receitas;
 		this.despesas = despesas;
 		this.parcelamento = parcelamento;
@@ -102,14 +100,6 @@ public class Usuario implements Serializable {
 
 	public void setFoneMovel(String foneMovel) {
 		this.foneMovel = foneMovel;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public List<Receita> getReceitas() {

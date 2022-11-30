@@ -1,24 +1,6 @@
 package com.infomota.despesa.services;
 
-/**
- * Classe que representa as funcionalidades de negócio da Entidade PARCELAMENTO
- * Acessa o repositório: ParcelamentoReporitory
- * 
- * Author: Paulo Mota
- * Data: 26/11/2022
- * 
- */
 import java.time.LocalDate;
-
-/**
- * Classe que representa as funcionaidades de negócio da Entidade PARCELAMENTO
- * Acessa a tabela: UsuarioRepository
- * 
- * Author: Paulo Mota
- * Data: 26/11/2022
- * 
- */
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,41 +10,29 @@ import com.infomota.despesa.entities.Parcelamento;
 import com.infomota.despesa.enums.StatusPagamento;
 import com.infomota.despesa.repositorie.ParcelamentoReporitory;
 
+/**
+ * @Description Classe que representa as funcionalidades de negócio da Entidade
+ *              PARCELAMENTO. Acessa o repositório: ParcelamentoReporitory
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Service
 public class ParcelamentoService {
 
 	@Autowired
 	private ParcelamentoReporitory rep;
 
-	// Retorna todos os parcelamentos de um usuario
-	public List<Parcelamento> findAll() {
-		return rep.findAll();
-	}
-
-	// Retorna uma lista de parcelamentos
-	public List<Parcelamento> findByDescricao(String descricao) {
-		return rep.findByDescricao(descricao);
-	}
-
-	// Retorna os parcelamentos a partir de uma data de vencimento
-	public List<Parcelamento> findByVencimento(LocalDate vencimento) {
-		return rep.findByVencimento(vencimento);
-	}
-
 	// Retorna parcelas por descrição e status
-	public List<Parcelamento> findByDescricaoAndStatus(String descricao, String status) {
-		return rep.findByDescricaoAndStatus(descricao, status);
+	public List<Parcelamento> findByUsuarioIdAndDescricaoAndStatus(Integer usuario, String descricao, String status) {
+		return rep.findByUsuarioIdAndDescricaoAndStatus(usuario, descricao, status);
 	}
-
-	// Retorna parcelas por data de vencimento e status
-	public List<Parcelamento> findByVencimentoandStatus(String vencimento, String status) {
-		return rep.findByVencimentoAndStatus(LocalDate.parse(vencimento), status);
-	}
-
-	// Retorna débitos em aberto de um período
-	public List<Parcelamento> findByAbertoPorPeriodo(String min, String max) {
-		return rep.findByAbertoPorPeriodo(LocalDate.parse(min), LocalDate.parse(max));
-	}
+	
+	// Retorna débitos em aberto de um período (STATUS = PENDENTE)
+		public List<Parcelamento> findByAbertoPorPeriodo(Integer usuario, String min, String max) {
+			String status = StatusPagamento.PENDENTE.getDescricao();
+			return rep.findByAbertoPorPeriodo(LocalDate.parse(min), LocalDate.parse(max), status, usuario);
+		}
 
 	// Salva um novo novo parcelamento
 	public void novoParcelamento(List<Parcelamento> parcela) {

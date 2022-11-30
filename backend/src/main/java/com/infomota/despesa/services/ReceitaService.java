@@ -9,6 +9,13 @@ import org.springframework.stereotype.Service;
 import com.infomota.despesa.entities.Receita;
 import com.infomota.despesa.repositorie.ReceitaRepository;
 
+/**
+ * @Description Classe que representa as funcionalidades de negócio da Entidade
+ *              RECEITA. Acessa o repositório: ReceitaReporitory
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Service
 public class ReceitaService {
 
@@ -40,8 +47,8 @@ public class ReceitaService {
 		rep.delete(receita);
 	}
 
-	public List<Receita> receitasMes(int ano, int mes) {
-		return rep.findByAnoAndMes(ano, mes);
+	public List<Receita> receitasMes(int ano, int mes, Integer usuario) {
+		return rep.findByAnoAndMesAndUsuarioId(ano, mes, usuario);
 	}
 
 }

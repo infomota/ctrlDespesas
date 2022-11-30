@@ -1,14 +1,5 @@
 package com.infomota.despesa.services;
 
-/**
- * Classe que representa as funcionaidades de negócio da Entidade USUARIO
- * Acessa o repositório: UsuarioRepository
- * 
- * Author: Paulo Mota
- * Data: 23/11/2022
- * 
- */
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +8,19 @@ import org.springframework.stereotype.Service;
 import com.infomota.despesa.entities.Usuario;
 import com.infomota.despesa.repositorie.UsuarioRepository;
 
+/**
+ * @Description Classe que representa as funcionalidades de negócio da Entidade
+ *              USUARIO Acessa o repositório: UsuarioReporitory
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Service
 public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository rep;
-	
+
 	// Retorna uma lista de usuários cadastrados
 	public List<Usuario> findUserAll() {
 		return rep.findAll();
@@ -37,17 +35,10 @@ public class UsuarioService {
 	public Usuario findByCpf(String cpf) {
 		return rep.findByCpf(cpf);
 	}
-	
+
 	// Insere um novo usuário
 	public void novoUsuario(Usuario user) {
 		rep.save(user);
-	}
-	
-	// Alterar a senha de um usuário
-	public void alteraSenha(Integer id, String senha) {
-		Usuario usuario = rep.findById(id).get();
-		usuario.setSenha(senha);
-		rep.save(usuario);
 	}
 
 }

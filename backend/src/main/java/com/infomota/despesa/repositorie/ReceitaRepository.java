@@ -6,8 +6,13 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 
 import com.infomota.despesa.entities.Receita;
 
-public interface ReceitaRepository extends JpaRepositoryImplementation<Receita, Integer>{
+/**
+ * @Description Classe que faz o gerenciamento dos dados de uma Receita
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+public interface ReceitaRepository extends JpaRepositoryImplementation<Receita, Integer> {
 
-	List<Receita> findByAnoAndMes(int ano, int mes);
+	List<Receita> findByAnoAndMesAndUsuarioId(int ano, int mes, Integer usuario);
 
 }

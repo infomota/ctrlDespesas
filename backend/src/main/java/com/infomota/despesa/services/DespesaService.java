@@ -10,6 +10,13 @@ import com.infomota.despesa.entities.Despesa;
 import com.infomota.despesa.enums.StatusPagamento;
 import com.infomota.despesa.repositorie.DespesaRepository;
 
+/**
+ * @Description Classe que representa as funcionalidades de negócio da Entidade
+ *              DESPESA. Acessa o repositório: DespesaRepository
+ * @author Paulo Mota
+ * @data 23/11/2022
+ */
+
 @Service
 public class DespesaService {
 
@@ -28,7 +35,7 @@ public class DespesaService {
 		despesa.setDescricao(descricao);
 		rep.save(despesa);
 	}
-	
+
 	// Altera o status de uma despesa para pago
 	public void pagarDespesa(Integer id) {
 		Despesa despesa = rep.findById(id).get();
@@ -37,8 +44,8 @@ public class DespesaService {
 	}
 
 	// Busca todas as despesas de um mês
-	public List<Despesa> findByAnoAndMes(Integer ano, Integer mes) {
-		return rep.findByAnoAndMes(ano, mes);
+	public List<Despesa> findByAnoAndMesAndUsuarioId(Integer ano, Integer mes, Integer UsuarioId) {
+		return rep.findByAnoAndMesAndUsuarioId(ano, mes, UsuarioId);
 	}
 
 }

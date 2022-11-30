@@ -1,14 +1,5 @@
 package com.infomota.despesa.controller;
 
-/**
- * Classe que contém os endPoints que acessam a entidade USUARIO
- * Acessa o serviço: UsuarioService
- * 
- * Author: Paulo Mota
- * Data: 23/11/2022
- * 
- */
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.infomota.despesa.entities.Usuario;
 import com.infomota.despesa.services.UsuarioService;
+
+/**
+ * @Description Classe que contém os endPoints que acessam a entidade USUARIO.
+ *              Acessa o serviço: UsuarioService
+ * @author Paulo Mota
+ * @data 27/11/2022
+ */
 
 @RestController
 @RequestMapping(value = "/usuarios")
@@ -49,12 +46,4 @@ public class UsuarioController {
 	public void novoUsuario(@RequestBody Usuario user) {
 		service.novoUsuario(user);
 	}
-
-	@PostMapping("/alteraSenha")
-	public void alteraSenha(
-			@RequestParam(value = "id") Integer id, 
-			@RequestParam(value = "novaSenha") String senha) {
-		service.alteraSenha(id, senha);
-	}
-
 }
